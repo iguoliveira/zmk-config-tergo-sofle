@@ -1,24 +1,23 @@
-# This file generates the GitHub Actions matrix.
-# For simple board + shield combinations, add them to the top level board and
-# shield arrays, for more control, add individual board + shield combinations
-# to the `include` property. You can also use the `cmake-args` property to
-# pass flags to the build command and `artifact-name` to assign a name to
-# distinguish build outputs from each other:
-#
-# board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano_v2
-#     shield: reviung41
-#   - board: nice_nano_v2
-#     shield: corne_left
-#     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-#     artifact-name: corne_left_with_logging
-#
+
 ---
 include:
   - board: nice_nano_v2
+    shield: sofle_dongle dongle_display
+    snippet: studio-rpc-usb-uart
+    artifact-name: sofle_receptor_international
+    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DUSE_INTERNATIONAL_LAYOUT
+  - board: nice_nano_v2
+    shield: sofle_dongle dongle_display
+    snippet: studio-rpc-usb-uart
+    artifact-name: sofle_receptor_abnt2
+  - board: nice_nano_v2
     shield: sofle_left
+    artifact-name: sofle_esquerdo
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
     shield: sofle_right
+    artifact-name: sofle_direito
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: nice_nano_v2
+    shield: settings_reset
+    artifact-name: reset-firmware
