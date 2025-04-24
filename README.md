@@ -36,7 +36,9 @@ Na pasta [boards/shields](./boards/shields/) você encontra "shields".
 
 "Shields" são customizações adicionais que originam do hardware.
 
-Nela você encontrará a shield `dongle_display` que configura uma tela para o receptor e `sofle`, que cria as partes do teclado.
+Nela você encontrará as shields:
+- `dongle_display`, que configura uma tela para o receptor
+- `sofle`, que cria as **metades** do teclado.
 
 ### O coração do seu teclado é o receptor (dongle)
 
@@ -60,4 +62,4 @@ Para você entender a essência dos arquivos presentes nesse repositório:
 
 A pasta `.github` contém configurações que fazem com que uma "action" para compilar o firmware seja executada automaticamente ao dar push no repositório.
 
-
+O arquivo [build.yaml](./build.yaml) especifica o que deve ser compilado e com quais configurações.
