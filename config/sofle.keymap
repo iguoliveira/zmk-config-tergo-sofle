@@ -54,6 +54,12 @@
             key-positions = <50 51 58 59>; // 2 primeiras e 2 ultimas teclas da linha de teclas mais abaixo do teclado
             bindings = <&bootloader>;
         };
+        combo_unlock_zmk_studio {
+            // Desbloqueia o ZMK Studio
+            timeout-ms = <30>;
+            key-positions = <50 59>; // primeira e última teclaa da linha de teclas mais abaixo do teclado
+            bindings = <&studio_unlock>;
+        };
     };
 };
 
