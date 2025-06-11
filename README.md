@@ -8,19 +8,39 @@ Caso tenha chegado aqui por acidente, visite a [documentação oficial do Tergo 
 
 ## Por onde começar
 
-Configure seu ambiente para customização do código-fonte vendo [essa nossa documentação](https://github.com/TergoTeclados/Tergo-Sofle-Documentation/blob/main/guias/especifico_versao_wireless/COMO_MODIFICAR_CODIGO_FONTE.md#tergo-sofle---manual-de-modifica%C3%A7%C3%A3o-do-firmware).
+Configure seu ambiente para customização do código-fonte e compilação vendo [essa nossa documentação](https://github.com/TergoTeclados/Tergo-Sofle-Documentation/blob/main/guias/especifico_versao_wireless/COMO_MODIFICAR_CODIGO_FONTE.md#tergo-sofle---manual-de-modifica%C3%A7%C3%A3o-do-firmware).
 
 Então, leia o [tópico abaixo](#visão-geral) para entender um pouco sobre cada pasta desse repositório.
 
 Por fim, para gravar o firmware no seu teclado, leia [esse nosso guia](https://github.com/TergoTeclados/Tergo-Sofle-Documentation/blob/main/guias/especifico_versao_wireless/COMO_ATUALIZAR_FIRMWARE.md#manual-de-atualiza%C3%A7%C3%A3o-do-firmware---vers%C3%A3o-wireless).
 
-## Firmware ZMK
+## Dicas de customizações a fazer
+
+### Mudar tempo para o teclado dormir
+
+- Modifique a variável `CONFIG_ZMK_IDLE_SLEEP_TIMEOUT` do [config/sofle.conf](config/sofle.conf).
+
+Calcule de forma simples com base nos minutos que quer que ele demore e coloque o valor em milisegundos.
+
+> [!TIP]
+>
+> Exemplo: 15 minutos = `15 * 60 (segundos) * 1000 (mili)` = 900000
+
+### Outros
+
+> [!INFO]
+>
+> Outras sugestões de customizações podem surgir com o tempo e conforme demanda.
+>
+> Nos notifique conforme precisar.
+
+## Entendendo melhor: o que é o firmware ZMK
 
 O firmware ZMK não espera que você modifique o código-fonte dele em si, mas sim crie uma configuração para o seu teclado, que é o caso deste repositório.
 
 A partir dessa configuração você customiza seu teclado.
 
-## Como funciona
+## Resumo sobre as pastas deste repositório
 
 ### Configurações gerais
 
