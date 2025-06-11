@@ -12,6 +12,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 
+// Enumera as camadas do teclado
 #define BASE 0
 #define ADEPT 1
 #define OTHER 2
@@ -22,6 +23,7 @@
 #define MOUSE 7
 
 // ABNT2 keycodes
+// Mapeamento de teclas ABNT2 que são usados para o layout brasileiro
 // Inspired by https://github.com/qmk/qmk_firmware/blob/master/quantum/keymap_extras/keymap_brazilian_abnt2.h
 #define BR_SLSH INT1
 #define BR_ACUT LBKT
@@ -30,45 +32,52 @@
 #define BR_LBKT RBKT
 #define BR_LBCT LS(RBKT)
 
-#define TAPPING_TERM 300
+// Abaixo, há especificações do comportamento do tap-hold para teclas com duplo comportamento
+// Para mais detalhes: https://zmk.dev/docs/keymaps/behaviors/hold-tap
 
+#define TAPPING_TERM 300 // Tempo em milissegundos para diferenciar o tap-hold
+
+// Para teclas com tap-hold em que o hold é um modificador, como CTRL, ALT, etc
 &mt {
     tapping-term-ms = <TAPPING_TERM>;
     quick-tap-ms = <TAPPING_TERM>;
-    flavor = "balanced";
+    flavor = "balanced"; // Pode ser "balanced", "hold-preferred" ou "tap-preferred"
 };
 
+// Para teclas com tap-hold em que o hold é uma mudança de camada, como SYMB_NAV, MEDIA, etc
 &lt {
     tapping-term-ms = <TAPPING_TERM>;
     quick-tap-ms = <TAPPING_TERM>;
-    flavor = "balanced";
+    flavor = "balanced"; // Pode ser "balanced", "hold-preferred" ou "tap-preferred"
 };
 
 
+// Combos do teclado
 / {
     combos {
         compatible = "zmk,combos";
         combo_dongle_bootloader {
             // Faz o dongle entrar em modo de bootloader, para gravacao do firmware
-            timeout-ms = <30>;
+            timeout-ms = <30>; // Tempo de tolerancia para apertar as teclas ao mesmo tempo
             key-positions = <50 51 58 59>; // 2 primeiras e 2 ultimas teclas da linha de teclas mais abaixo do teclado
-            bindings = <&bootloader>;
+            bindings = <&bootloader>; // Tecla a ser simulada ao apertar a combinação acima
         };
         combo_unlock_zmk_studio {
             // Desbloqueia o ZMK Studio
-            timeout-ms = <30>;
-            key-positions = <50 59>; // primeira e última teclaa da linha de teclas mais abaixo do teclado
-            bindings = <&studio_unlock>;
+            timeout-ms = <30>; // Tempo de tolerancia para apertar as teclas ao mesmo tempo
+            key-positions = <50 59>; // primeira e última teclas da linha de teclas mais abaixo do teclado
+            bindings = <&studio_unlock>; // Tecla a ser simulada ao apertar a combinação acima
         };
     };
 };
 
 
+// Mapeamento de teclas e camadas do teclado
 / {
     keymap {
         compatible = "zmk,keymap";
 
-// Layer template
+// Uma cópia genérica do template de camada, que pode ser usada para criar novas camadas
 //        name_layer {
 //            display-name = "name";
 //            bindings = <
@@ -79,7 +88,7 @@
 //                    &trans    &trans      &trans    &trans     &trans    &trans   &trans    &trans   &trans    &trans
 //            >;
 //
-//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+//            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>; // Para o knob (encoder)
 //        };
 
         base_layer {

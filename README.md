@@ -10,37 +10,37 @@ Caso tenha chegado aqui por acidente, visite a [documentação oficial do Tergo 
 
 Configure seu ambiente para customização do código-fonte vendo [essa nossa documentação](https://github.com/TergoTeclados/Tergo-Sofle-Documentation/blob/main/guias/especifico_versao_wireless/COMO_MODIFICAR_CODIGO_FONTE.md#tergo-sofle---manual-de-modifica%C3%A7%C3%A3o-do-firmware).
 
-Então, leia o [tópico abaixo](#visão-geral) para entender um pouco mais sobre o firmware.
+Então, leia o [tópico abaixo](#visão-geral) para entender um pouco sobre cada pasta desse repositório.
 
 Por fim, para gravar o firmware no seu teclado, leia [esse nosso guia](https://github.com/TergoTeclados/Tergo-Sofle-Documentation/blob/main/guias/especifico_versao_wireless/COMO_ATUALIZAR_FIRMWARE.md#manual-de-atualiza%C3%A7%C3%A3o-do-firmware---vers%C3%A3o-wireless).
 
-## Visão Geral
-
-### Firmware ZMK
+## Firmware ZMK
 
 O firmware ZMK não espera que você modifique o código-fonte dele em si, mas sim crie uma configuração para o seu teclado, que é o caso deste repositório.
 
 A partir dessa configuração você customiza seu teclado.
 
-### Como funciona
+## Como funciona
 
-#### Configurações gerais
+### Configurações gerais
 
 A pasta [config](./config/) possui a configuração e customizações do teclado.
 
-Você irá querer customizá-lo pelo arquivo [config/sofle.keymap](./config/sofle.keymap).
+Você irá querer customizar o layout e funcionalidades no arquivo [config/sofle.keymap](./config/sofle.keymap), que possui diversos comentário para te ajudar.
 
-#### Shields
+Além disso, há configurações que são feitas no [config/sofle.conf](./config/sofle.conf), como o tempo para o teclado entrar em modo de descanso.
+
+### Shields
 
 Na pasta [boards/shields](./boards/shields/) você encontra "shields".
 
 "Shields" são customizações adicionais que originam do hardware.
 
 Nela você encontrará as shields:
-- `dongle_display`, que configura uma tela para o receptor
+- `dongle_display`, que configura uma tela para o receptor;
 - `sofle`, que cria as **metades** do teclado.
 
-### O coração do seu teclado é o receptor (dongle)
+## O coração do seu teclado é o receptor (dongle)
 
 Para você entender a essência dos arquivos presentes nesse repositório:
 
@@ -58,7 +58,7 @@ Para você entender a essência dos arquivos presentes nesse repositório:
 >
 > É por isso que a maioria das customizações que você realizar no `sofle.keymap` que adicionem funcionalidades não necessitam da regravação do firmware nas partes do teclado, e sim apenas no receptor.
 
-### Outros
+## Outros
 
 A pasta `.github` contém configurações que fazem com que uma "action" para compilar o firmware seja executada automaticamente ao dar push no repositório.
 
