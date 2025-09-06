@@ -121,25 +121,25 @@
                      &trans     &trans      &trans      &lt MOUSE SPACE  &lt SYMB_NAV TAB   &trans  &trans    &trans      &trans      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         // By defaults its equal to base_layer. To be customized by user.
         other_layer {
-            display-name = "Other";
+            display-name = "Peak";
             bindings = <
 #ifdef USE_INTERNATIONAL_LAYOUT
 &kp ESC   &kp N1 &kp N2     &kp N3   &kp N4    &kp N5                               &kp N6 &kp N7     &kp N8    &kp N9   &kp N0    &kp MINUS
 &kp TAB   &kp Q  &kp W      &kp E    &kp R     &kp T                                &kp Y  &kp U      &kp I     &kp O    &kp P     &kp BSPC
 &kp LSHFT &kp A  &kp S      &kp D    &kp F     &kp G                                &kp H  &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
 &kp LCTRL &kp Z  &kp X      &kp C    &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N  &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp ENTER
-                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp ENTER  &kp BSPC  &kp DEL &kp RGUI  &kp RCTRL
+                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp RGUI  &kp MOUSE  &kp DEL &kp RGUI  &kp RCTRL
 #else
 &kp ESC   &kp N1 &kp N2     &kp N3   &kp N4    &kp N5                               &kp N6 &kp N7     &kp N8    &kp N9   &kp N0    &kp BSPC
 &kp TAB   &kp Q  &kp W      &kp E    &kp R     &kp T                                &kp Y  &kp U      &kp I     &kp O    &kp P     &kp BR_ACUT
 &kp LSHFT &kp A  &kp S      &kp D    &kp F     &kp G                                &kp H  &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
 &kp LCTRL &kp Z  &kp X      &kp C    &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N  &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp BR_SLSH
-                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp ENTER  &kp BSPC  &kp DEL &kp RGUI  &kp RCTRL
+                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp RGUI  &kp MOUSE  &kp DEL &kp RGUI  &kp RCTRL
 #endif
             >;
 
@@ -209,11 +209,11 @@
         mouse_layer {
             display-name = "Mouse";
             bindings = <
-&trans    &trans    &trans    &trans      &trans     &trans                          &trans         &trans         &trans         &trans          &trans    &trans
-&trans    &none     &none     &none       &none      &none                           &msc SCRL_UP   &none          &mmv MOVE_UP   &none           &none     &trans
-&trans    &kp LGUI  &kp LALT  &kp LCTRL   &kp LSHFT  &none                           &msc SCRL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &trans
-&trans    &none     &none     &none       &none      &none     &trans    &trans      &none          &none          &none          &none           &none     &trans
-                    &trans    &trans      &trans     &trans    &trans    &mkp RCLK   &mkp LCLK      &mkp MCLK      &trans         &trans
+&trans    &trans    &trans    &trans      &trans     &trans                        &trans    &trans         &trans         &trans          &trans    &trans
+&trans    &none     &none     &none       &none      &none                         &none     &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &none     &trans
+&trans    &kp LGUI  &kp LALT  &kp LCTRL   &kp LSHFT  &none                         &none     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &trans
+&trans    &none     &none     &none       &none      &none     &trans    &trans    &none     &msc SCRL_DOWN &mkp MCLK      &msc SCRL_UP    &none     &trans
+                    &trans    &trans      &trans     &trans    &trans    &trans    &trans    &trans         &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
