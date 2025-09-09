@@ -11,8 +11,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 // Aumenta a velocidade do ponteiro do mouse, precisa ficar acima do import
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500 // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // default: 10'
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
 
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
