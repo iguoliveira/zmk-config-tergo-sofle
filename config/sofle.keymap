@@ -17,15 +17,13 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // Enumera as camadas do teclado
-#define BASE 0
-#define ADEPT 1
-#define OTHER 2
-#define SYMB_NAV 3
-#define ADJUST 4
-#define MEDIA 5
-#define NUMPAD 6
-#define MOUSE 7
-#define UTILS 8
+#define PEAK 0
+#define NAV 1
+#define CONFIG 2
+#define MEDIA 3
+#define NUMPAD 4
+#define MOUSE 5
+#define UTILS 6
 
 // ABNT2 keycodes
 // Mapeamento de teclas ABNT2 que são usados para o layout brasileiro
@@ -96,84 +94,42 @@
 //            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>; // Para o knob (encoder)
 //        };
 
-        base_layer {
-            display-name = "Base";
-            bindings = <
-#ifdef USE_INTERNATIONAL_LAYOUT
-&kp ESC   &kp N1 &kp N2     &kp N3   &kp N4    &kp N5                               &kp N6 &kp N7     &kp N8    &kp N9   &kp N0    &kp MINUS
-&kp TAB   &kp Q  &kp W      &kp E    &kp R     &kp T                                &kp Y  &kp U      &kp I     &kp O    &kp P     &kp BSPC
-&kp LSHFT &kp A  &kp S      &kp D    &kp F     &kp G                                &kp H  &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
-&kp LCTRL &kp Z  &kp X      &kp C    &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N  &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp ENTER
-                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp ENTER  &kp BSPC  &kp DEL &kp RGUI  &kp RCTRL
-#else
-&kp ESC   &kp N1 &kp N2     &kp N3   &kp N4    &kp N5                               &kp N6 &kp N7     &kp N8    &kp N9   &kp N0    &kp BSPC
-&kp TAB   &kp Q  &kp W      &kp E    &kp R     &kp T                                &kp Y  &kp U      &kp I     &kp O    &kp P     &kp BR_ACUT
-&kp LSHFT &kp A  &kp S      &kp D    &kp F     &kp G                                &kp H  &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
-&kp LCTRL &kp Z  &kp X      &kp C    &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N  &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp BR_SLSH
-                 &mo NUMPAD &kp LGUI &kp LALT &kp SPACE  &mo SYMB_NAV    &kp ENTER  &kp BSPC  &kp DEL &kp RGUI  &kp RCTRL
-#endif
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        adept_layer {
-            display-name = "Adept";
-            bindings = <
-&trans    &trans     &trans     &trans      &trans      &trans                                      &trans    &trans      &trans      &trans     &trans        &trans
-&trans    &trans     &trans     &trans      &trans      &trans                                      &trans    &trans      &trans      &trans     &trans        &trans
-&trans    &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &trans                                      &trans    &mt LSHFT J &mt LCTRL K &mt LALT L &mt LGUI SEMI &trans
-&trans    &trans     &trans     &trans      &trans      &trans           &trans             &trans  &trans    &trans      &trans      &trans     &trans        &trans
-                     &trans     &trans      &trans      &lt MOUSE SPACE  &lt SYMB_NAV TAB   &trans  &trans    &trans      &trans      &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        other_layer {
+        peak_layer {
             display-name = "Peak";
             bindings = <
 &kp ESC   &kp N1 &kp N2     &kp N3    &kp N4    &kp N5                               &kp N6     &kp N7     &kp N8    &kp N9   &kp N0    &kp MINUS
 &kp TAB   &kp Q  &kp W      &kp E     &kp R     &kp T                                &kp Y      &kp U      &kp I     &kp O    &kp P     &kp BSPC
 &kp LSHFT &kp A  &kp S      &kp D     &kp F     &kp G                                &kp H      &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
-&kp LCTRL &kp Z  &kp X      &kp C     &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N      &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp ENTER
-                 &mo NUMPAD &mo UTILS &kp LALT &kp SPACE  &mo SYMB_NAV    &kp RGUI   &mo MOUSE  &kp DEL    &kp RGUI  &kp RCTRL
+&kp LCTRL &kp Z  &kp X      &kp C     &kp V     &kp B     &mo MEDIA       &mo CONFIG &kp N      &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp ENTER
+                 &mo NUMPAD &mo UTILS &kp LALT &kp SPACE  &mo NAV         &kp RGUI   &mo MOUSE  &kp DEL    &kp RGUI  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
-        symb_nav_layer {
+        nav_layer {
             display-name = "Nav";
             bindings = <
-#ifdef USE_INTERNATIONAL_LAYOUT
 &trans    &kp F1        &kp F2       &kp F3        &kp F4       &kp F5                        &kp F6    &kp F7       &kp F8    &kp F9        &kp F10           &kp F11
 &trans    &kp GRAVE     &kp LS(N6)   &kp KP_PLUS   &kp LS(LBKT) &kp LS(RBKT)                  &kp PG_UP &kp HOME     &kp UP    &kp END       &kp INS           &kp F12
 &trans    &kp LS(GRAVE) &kp EQUAL    &kp KP_MINUS  &kp LS(N9)   &kp LS(N0)                    &kp PG_DN &kp LEFT     &kp DOWN  &kp RIGHT     &kp PSCRN         &none
 &trans    &kp NUBS      &kp LS(NUBS) &kp LS(MINUS) &kp LBKT     &kp RBKT   &trans    &trans   &kp CAPS  &kp LC(LEFT) &kp ESC   &kp LC(RIGHT) &kp PAUSE_BREAK   &none
                         &trans       &trans        &trans       &trans     &trans    &trans   &trans    &trans       &trans    &trans
-#else
-&trans    &kp F1        &kp F2       &kp F3        &kp F4       &kp F5                        &kp F6    &kp F7       &kp F8    &kp F9        &kp F10           &kp F11
-&trans    &kp GRAVE     &kp LS(N6)   &kp KP_PLUS   &kp BR_LBKT  &kp BR_RBKT                   &kp PG_UP &kp HOME     &kp UP    &kp END       &kp INS           &kp F12
-&trans    &kp LS(GRAVE) &kp EQUAL    &kp KP_MINUS  &kp LS(N9)   &kp LS(N0)                    &kp PG_DN &kp LEFT     &kp DOWN  &kp RIGHT     &kp PSCRN         &none
-&trans    &kp NUBS      &kp LS(NUBS) &kp LS(MINUS) &kp BR_LBCT  &kp BR_RBCT  &trans   &trans  &kp CAPS  &kp LC(LEFT) &kp ESC   &kp LC(RIGHT) &kp PAUSE_BREAK   &none
-                        &trans       &trans        &trans       &trans       &trans   &trans  &trans    &trans       &trans    &trans
-#endif
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
-        adjust_layer {
+        config_layer {
             display-name = "Cfg";
             bindings = <
 &studio_unlock &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &none    &none   &none          &none   &none   &none
 &none          &none        &none        &none        &none        &none                        &none    &none   &bt BT_CLR_ALL &none   &none   &none
 &none          &none        &none        &out OUT_TOG &none        &none                        &none    &none   &bt BT_CLR     &none   &none   &none
-&bootloader    &none        &to BASE     &to ADEPT    &to OTHER    &none     &trans    &trans   &none    &none   &none          &none   &none   &bootloader
+&bootloader    &none        &none        &none        &none        &none     &trans    &trans   &none    &none   &none          &none   &none   &bootloader
                &trans       &trans       &trans       &trans       &trans    &trans    &trans   &trans   &trans  &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         media_layer {
@@ -185,8 +141,7 @@
 &trans    &none     &none     &none       &none     &none      &trans    &trans   &none     &kp C_PREV   &kp C_PP   &kp C_NEXT   &none   &trans
                     &trans    &trans      &trans    &trans     &trans    &trans   &trans    &trans       &trans     &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         numpad_layer {
@@ -198,8 +153,7 @@
 &trans    &none     &none     &none       &none     &none      &trans    &trans   &none     &kp KP_N1   &kp KP_N2     &kp KP_N3        &kp KP_ENTER   &trans
                     &trans    &trans      &trans    &trans     &trans    &trans   &trans    &kp KP_N0   &kp KP_N0     &kp KP_DOT
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         mouse_layer {
