@@ -25,6 +25,7 @@
 #define MEDIA 5
 #define NUMPAD 6
 #define MOUSE 7
+#define UTILS 8
 
 // ABNT2 keycodes
 // Mapeamento de teclas ABNT2 que são usados para o layout brasileiro
@@ -135,7 +136,7 @@
 &kp TAB   &kp Q  &kp W      &kp E     &kp R     &kp T                                &kp Y      &kp U      &kp I     &kp O    &kp P     &kp BSPC
 &kp LSHFT &kp A  &kp S      &kp D     &kp F     &kp G                                &kp H      &kp J      &kp K     &kp L    &kp SEMI  &kp SQT
 &kp LCTRL &kp Z  &kp X      &kp C     &kp V     &kp B     &mo MEDIA       &mo ADJUST &kp N      &kp M      &kp COMMA &kp DOT  &kp FSLH  &kp ENTER
-                 &mo NUMPAD &mo UTILS &kp LALT &kp SPACE  &mo SYMB_NAV    &kp RGUI   &mo MOUSE  &kp DEL &kp RGUI  &kp RCTRL
+                 &mo NUMPAD &mo UTILS &kp LALT &kp SPACE  &mo SYMB_NAV    &kp RGUI   &mo MOUSE  &kp DEL    &kp RGUI  &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
