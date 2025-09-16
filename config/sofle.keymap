@@ -161,7 +161,7 @@
             bindings = <
 &trans    &trans    &trans     &trans          &trans     &trans                        &trans    &trans          &trans         &trans          &trans    &trans
 &trans    &none     &none      &msc SCRL_UP    &none      &none                         &none     &mkp LCLK       &mmv MOVE_UP   &mkp RCLK       &none     &trans
-&trans    &none     &mkp RCLK  &mkp MCLK       &mkp LCLK  &none                         &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &none     &trans
+&trans    &kp LGUI  &mkp RCLK  &mkp MCLK       &mkp LCLK  &none                         &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp RGUI  &trans
 &trans    &none     &none      &msc SCRL_DOWN  &none      &none     &trans    &trans    &none     &msc SCRL_DOWN  &mkp MCLK      &msc SCRL_UP    &none     &trans
                     &trans     &trans          &trans     &trans    &trans    &trans    &trans    &trans          &trans         &trans
             >;
