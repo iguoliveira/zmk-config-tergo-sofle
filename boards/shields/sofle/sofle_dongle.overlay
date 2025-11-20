@@ -59,10 +59,12 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
     };
 };
 
+// Temos 2 telas que são fisicamente iguais mas que usam tecnologias diferentes
 &pro_micro_i2c {
     status = "okay";
+#ifdef USE_SH1106
     oled: sh1106@3c {
-        compatible = "sinowealth,sh1106";
+        compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <129>;
         height = <64>;
@@ -74,5 +76,21 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
         com-invdir;
         inversion-on;
         prechargep = <0x22>;
-        };
+    };
+#else
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <2>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        inversion-on;
+        prechargep = <0x22>;
+    };
+#endif
 };
