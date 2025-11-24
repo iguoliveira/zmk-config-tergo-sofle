@@ -2,24 +2,23 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: sofle_dongle dongle_display
+    shield: sofle_dongle sofle_dongle_ssd1306 dongle_display
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_receptor_ANSI_displayV2
     cmake-args: -DDTS_EXTRA_CPPFLAGS=-DUSE_INTERNATIONAL_LAYOUT
   - board: nice_nano_v2
-    shield: sofle_dongle dongle_display
+    shield: sofle_dongle sofle_dongle_sh1106 dongle_display
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_receptor_ANSI_displayV1
-    cmake-args: -DDTS_EXTRA_CPPFLAGS='-DUSE_INTERNATIONAL_LAYOUT -DUSE_SH1106'
+    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DUSE_INTERNATIONAL_LAYOUT
   - board: nice_nano_v2
-    shield: sofle_dongle dongle_display
+    shield: sofle_dongle sofle_dongle_ssd1306 dongle_display
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_receptor_ABNT2_displayV2
   - board: nice_nano_v2
-    shield: sofle_dongle dongle_display
+    shield: sofle_dongle sofle_dongle_sh1106 dongle_display
     snippet: studio-rpc-usb-uart
     artifact-name: sofle_receptor_ABNT2_displayV1
-    cmake-args: -DDTS_EXTRA_CPPFLAGS=-DUSE_SH1106
   - board: nice_nano_v2
     shield: sofle_left
     artifact-name: sofle_esquerdo
