@@ -64,7 +64,7 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
     status = "okay";
 #ifdef USE_SH1106
     oled: sh1106@3c {
-        compatible = "solomon,ssd1306fb";
+        compatible = "sinowealth,sh1106";
         reg = <0x3c>;
         width = <129>;
         height = <64>;
